@@ -1,27 +1,26 @@
+
 import React, { useState, useEffect } from 'react';
 
 function MyTown() {
-  const [weatherData, setWeatherData] = useState(null);
-  const [isFahrenheit, setIsFahrenheit] = useState(false);
+  const [weatherData, setData] = useState(null);
+  const [isFH, setTemp] = useState(false);
 
   useEffect(() => {
-    // Replace 'YOUR_API_KEY' with your actual OpenWeatherMap API key
-    const apiKey = 'YOUR_API_KEY';
-    const city = 'Your Town'; // Replace with your town's name or city
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    const apiKey = '592ae3fb37d427d90d4fe1e38aa5e2e3';
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Halifax&units=metric&appid=${apiKey}`;
 
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
-        setWeatherData(data);
+        setData(data);
       })
       .catch((error) => {
         console.error('Error fetching weather data:', error);
       });
   }, []);
 
-  // Function to determine the weather image based on temperature
-  const getWeatherImage = (temperature) => {
+
+  const getImage = (temperature) => {
     if (temperature <= 10) {
       return 'cold.png';
     } else if (temperature > 10 && temperature < 20) {
@@ -36,27 +35,25 @@ function MyTown() {
   };
 
   const toggleTemperatureUnit = () => {
-    setIsFahrenheit(!isFahrenheit);
+    setTemp(!isFH);
   };
 
   return (
     <div className="page-container">
-      <h1>I live in Your Town</h1>
+      <h1>I live in Halifax, NS</h1>
+      <p>Halifax is a vibrant coastal city in Nova Scotia, Canada, known for its rich maritime heritage. With a picturesque waterfront, historic sites, and a lively arts scene, Halifax offers a blend of history and modern charm. Visitors can explore the iconic Citadel Hill, enjoy fresh seafood at the bustling harbor, and experience the warmth of its friendly residents. The city's cultural diversity and stunning natural surroundings, including the scenic Peggy's Cove, make Halifax a delightful destination for travelers.</p>
+      <img className="town-image" src="/images/mytown.jpg"  />
       {weatherData && (
         <div>
-          <h1>I live in Halifax, Nova Scotia, Canada.</h1>
-            <img src="\images\mytown.jpg" alt="Your Town" />
-          <img
-            src={`/images/${getWeatherImage(weatherData.main.temp)}`}
-            alt="Weather"
+          <img className="town-image"
+            src={`/images/${getImage(weatherData.main.temp)}`}
           />
-<p>
-            Temperature: {isFahrenheit
+          <p> Temperature: {isFH
               ? `${toFahrenheit(weatherData.main.temp)}°F`
-              : `${weatherData.main.temp}°C`}
-          </p>
+              : `${weatherData.main.temp}°C`}</p>
+
           <button onClick={toggleTemperatureUnit}>
-            Change to {isFahrenheit ? '°C' : '°F'}
+            Change to {isFH ? '°C' : '°F'}
           </button>
         </div>
       )}

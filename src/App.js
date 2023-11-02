@@ -14,8 +14,8 @@ function App() {
   return (
     <div>
       <nav>
-        <a onClick={() => handlePageChange('aboutMe')}>About me</a>
-        <a onClick={() => handlePageChange('myTown')}>My Town</a>
+        <a onClick={() => handlePageChange('aboutMe')}>ABOUT ME</a>
+        <a onClick={() => handlePageChange('myTown')}>MY TOWN</a>
       </nav>
       {currentPage === 'aboutMe' ? <AboutMe /> : null}
       {currentPage === 'myTown' ? <MyTown /> : null}

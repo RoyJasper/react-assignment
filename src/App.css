@@ -16,6 +16,13 @@ nav a {
   text-decoration: none;
   color: white;
   margin: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
 
 .page-container {
@@ -28,14 +35,38 @@ nav a {
   margin-top: 20px;
 }
 
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1.2em;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
 h1 {
   color: #333;
 }
 
 p {
-  color: #555;
+  font-size: 1.2em;
+  color: #666;
 }
 
 img {
   max-width: 100%;
+}
+
+.town-image {
+  max-width: 100%; 
+  border: 2px solid #333; 
+  border-radius: 10px; 
+  box-shadow: 3px 3px 5px #888; 
+  margin-top: 20px; 
+  
 }
