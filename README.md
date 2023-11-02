@@ -1,7 +1,7 @@
 This is the repo of the React Assignment.
 
 Requirements
-A React app with two views (or pages). You can create it by running the create-react-app command.
+A React app with two views (or pages). 
 
 1st Page: "About me"
 Add your name as the headline
@@ -14,9 +14,8 @@ Add the current weather of that city (see section below)
 Add two <a> tags: "About me" and "My Town" (you can any other tag that you can make clickable)
 When "About me" is clicked the 1st Page is shown
 When "My Town" is clicked the 2nd Page is shown
-Hint: use React Router
-Current Weather
-This is the hardest part of the assignment
+
+Current Weathers
 The goal of this exercise is to fetch data from an API and populate it to the UI
 You can use an actual Weather API like OpenWeatherMap 
 Add a picture next to the temperature text. The picture should be:    
