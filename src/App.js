@@ -5,17 +5,17 @@ import './App.css';
 
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('aboutMe');
+  const [currentPage, setPage] = useState('aboutMe');
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
+  const pChange = (page) => {
+    setPage(page);
   };
 
   return (
     <div>
       <nav>
-        <a onClick={() => handlePageChange('aboutMe')}>ABOUT ME</a>
-        <a onClick={() => handlePageChange('myTown')}>MY TOWN</a>
+        <a onClick={() => pChange('aboutMe')}>ABOUT ME</a>
+        <a onClick={() => pChange('myTown')}>MY TOWN</a>
       </nav>
       {currentPage === 'aboutMe' ? <AboutMe /> : null}
       {currentPage === 'myTown' ? <MyTown /> : null}
